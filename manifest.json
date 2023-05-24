@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Block Time Automaton",
     "version": "1.0",
-    "description": "Automatically set the time of events (Blocks) in Google Calendar",
+    "description": "Automatically set the time of events (blocks) in Google Calendar",
     "options_ui": {
         "page": "options.html",
         "open_in_tab": false
