@@ -1,12 +1,8 @@
 {
     "manifest_version": 3,
     "name": "Block Time Automaton",
-    "version": "1.0",
-    "description": "Automatically set the time of events (blocks) in Google Calendar",
-    "options_ui": {
-        "page": "options.html",
-        "open_in_tab": false
-    },
+    "version": "2.0",
+    "description": "Automatically set the times for a given class block in Google Calendar based on the rotation schedule",
     "content_scripts": [
         {
           "js": ["content.js"],
@@ -20,15 +16,5 @@
         "32": "images/icon-32.png",
         "48": "images/icon-48.png",
         "128": "images/icon-128.png"
-    },
-    "action": {
-        "default_icon": {
-        "16": "images/icon-16.png",
-        "32": "images/icon-32.png",
-        "48": "images/icon-48.png",
-        "128": "images/icon-128.png"
-        },
-        "default_popup": "options.html"
-    },
-    "permissions": ["storage"]
+    }
 }
