@@ -7,9 +7,8 @@
 ### Created: May 2023
 ### Version: 2.0
 
-Click the below image to watch a demonstration of the project. Not seen in the video is the addition of an asterisk (\*) after the block letter. 
-Ex) "Block C\*" becomes "Block C from 10:40am to 11:50am".
-[![IMAGE ALT TEXT HERE](docs/OverviewExample.jpg)](https://www.youtube.com/watch?v=7iAm84Ehtgc)
+Click the below image to watch a demonstration of the project:
+[![IMAGE ALT TEXT HERE](docs/OverviewExample.jpg)](https://youtu.be/Y38fq9zyvYM)
 
 ### Updates:
 #### Version 2.0:
