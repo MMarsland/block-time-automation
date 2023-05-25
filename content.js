@@ -120,6 +120,7 @@ function getRotation(date) {
 
 
 /** MAIN */
-if (document.querySelector("input[placeholder='Add title and time']")) {
+input_div = document.querySelector("input[placeholder='Add title and time']")
+if (input_div) {
     automateBlockTimes(input_div)
 }
