@@ -13,3 +13,7 @@ Click the below image to watch a demonstration of the project:
 ### Updates:
 #### Version 2.0:
 Modifies the behavior of the extension to automatically map the times of the class based on the block letter and given date from the hardcoded rotation schedule.
+
+### TODO:
+#### Version 3.0:
+- Convert an upload image of the schedule into a map for the block rotation (and save it in storage (options)) so the extension can be used every year without hardcoding
