@@ -4,7 +4,7 @@
  * Ex) "Block A*" becomes "Block A from 8:45am to 10:35am"
  * which is then translated to an event called "Block A" from the time 8:55am to 10:25am in the calendar.
 */
-function automateBlockTimes(input_div) {
+function automateBlockTimes(input_div, view="month") {
     title = input_div.value
     for (const block of ["A", "B", "C" , "D"]) { // Check each block
         if (title.includes(` ${block} `)) {
@@ -21,74 +21,18 @@ function automateBlockTimes(input_div) {
             
             let times = getStartAndEndTimes(rotation, block)
 
-            // Instead of substituting the times in text, create a new event in the month page
+            input_div.value += ` from ${times.start} to ${times.end}` // Remove the * and add the times for google calendar to translate into start and end times
+            
+            if (view == "week") {
+                document.querySelector("span[data-key='startDate']").click()
 
-            //document.querySelector("button[aria-label='Close']").click()
-
-            //setTimeout(() => {
-
-                // var xpath = "//span[text()='Week']";
-                // var matchingElement = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-                // matchingElement.click()
-
-                // setTimeout(() => {
-                //     var xpath = "//span[text()='Month']";
-                //     var matchingElement = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-                //     matchingElement.click()
-
-                //     setTimeout(() => {
-                //         var xpath = `//h2[text()='${date}']`;
-                //         var matchingElement = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-                //         console.log({obj: matchingElement})
-                //         var datekey = matchingElement.dataset.datekey
-                //         console.log(datekey)
-
-                //         var matchingElement = document.querySelector(`div[data-datekey="${datekey}"`)
-                //         matchingElement.click()
-                        
-                        //setTimeout(() => {
-                            input_div.value += ` from ${times.start} to ${times.end}` // Remove the * and add the times for google calendar to translate into start and end times
-                            document.querySelector("span[data-key='startDate']").click()
-                            //setTimeout(() => {
-                                //var xpath = `//i[text()='access_time']`; 
-                                //var matchingElement = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-                                //matchingElement.click()
-                                // document.querySelector(`div[aria-label='${date} ${month}']`).click()
-                                setTimeout(() => {
-                                    document.querySelector(`input[aria-label='All day']`).click()
-                                    
-                                
-                                     setTimeout(() => {
-                                         var xpath = `//span[text()='Save']`;
-                                         var matchingElement = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-                                         matchingElement.click()
-
-                                    //     setTimeout(() => {
-                                    //         var xpath = "//span[text()='Month']";
-                                    //         var matchingElement = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-                                    //         matchingElement.click()
-
-                                    //         setTimeout(() => {
-                                    //             var xpath = "//span[text()='Week']";
-                                    //             var matchingElement = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-                                    //             matchingElement.click()
-                                    //         }, 2000)
-                                        
-                                    //     }, 2000)
-                                    
-                                    }, 200)
-
-                                }, 200)
-
-                           // }, 2000)
-                        
-                        //}, 2000)
-
-            //         }, 2000)
-
-            //     }, 2000)
-
-            // }, 2000)
+                setTimeout(() => {
+                    document.querySelector(`input[aria-label='All day']`).click()
+                    setTimeout(() => {
+                        input_div.focus()
+                    }, 1000)
+                }, 200)
+            }
         }
     }
 }
@@ -191,6 +135,10 @@ function getRotation(date) {
 /** MAIN */
 input_div_week = document.querySelector("input[placeholder='Add title']")
 if (input_div_week) {
-    automateBlockTimes(input_div_week)
+    automateBlockTimes(input_div_week, "week")
 }
 
+input_div_month = document.querySelector("input[placeholder='Add title and time']")
+if (input_div_month) {
+    automateBlockTimes(input_div_month, "month")
+}

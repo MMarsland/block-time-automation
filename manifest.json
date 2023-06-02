@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Block Time Automaton",
-    "version": "2.0",
+    "version": "3.0",
     "description": "Automatically set the times for a given class block in Google Calendar based on the rotation schedule",
     "icons": {
         "16": "images/icon-16.png",
